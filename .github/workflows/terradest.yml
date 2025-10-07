@@ -1,8 +1,8 @@
 name: Terraform Destroy
 
-# Controls when the workflow will run
+# Workflow is manually triggerable only for safety
 on:
-  workflow_dispatch:   # Only manually triggerable for safety
+  workflow_dispatch:
 
 jobs:
   TerraDestroy:
@@ -26,7 +26,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-north-1
+          aws-region: us-east-1   # <-- Change region if needed
 
       - name: Terraform Init
         run: terraform init -input=false
